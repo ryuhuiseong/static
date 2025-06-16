@@ -1,27 +1,17 @@
-class Car {
-    String brand;
+public class Main {
+    String outerMessage = "Hello from Outer";
 
-    public Car(String brand) {
-        this.brand = brand;
-    }
-
-    class Engine {
-        public void start() {
-            System.out.println("The engine of " + brand + " is starting.");
+    class Inner {
+        void showmessage(){
+            System.out.println(outerMessage);
         }
     }
 
-    public void startEngine() {
-        Engine engine = new Engine();
-        engine.start();
-    }
-}
-
-
-public class Main {
     public static void main(String[] args){
-        Car car = new Car("빠른 자동차");
+        Main main = new Main();
 
-        car.startEngine();
+        Main.Inner inner = main.new Inner();
+
+        inner.showmessage();
     }
 }
